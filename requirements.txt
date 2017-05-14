@@ -1,0 +1,4 @@
+
+psutil
+slackclient
+websocket-client==0.35.0
