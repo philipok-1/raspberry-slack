@@ -25,9 +25,11 @@ To use:
 $ git clone https://github.com/philipok-1/raspberry-slack
 ```
 
-3.  Fill in the slack_config.conf file with appropriate API keys, usernames and webhook urls (if using)
+3.  Fill in the slack_config.conf file with appropriate API keys, usernames and webhook urls (if using). if you are using Motion you need to add local webcam IP address and the image capture location
 
 4.  Run the Raspberry-Slack.py script from your pi (probably with sudo)
+
+5.  send a DM on the slack channel - @rpi "send me a snapshot".  the bot will also recognise messages sent to @everyone so you can get mutiple PIS to report in
 
 With acknowledgments to: 
 
