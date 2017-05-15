@@ -5,7 +5,7 @@
 An easy to use Python script to run a bot from an RPI.  It allows you to send direct messages to a bot running on an RPI (or indeed any Linux system).  There are three plugins that the script uses to parse user messages:
 
 * plugin_status: responds to 'status' with a readout of temperature, CPU % and running time
-* plugin_motion: use on an RPI running Motion - respons to 'snapshot' with a picture from the webcam.
+* plugin_motion: use on an RPI running Motion - responds to 'snapshot' with a picture from the webcam.
 * plugin_sys: reponds to 'reboot' or 'shut down' and either reboots or shuts down
 
 I plan to add more!
