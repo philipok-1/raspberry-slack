@@ -1,4 +1,6 @@
-# Raspberry Slack
+# Raspberry Slack ![logo](https://github.com/philipok-1/raspberry-slack/blob/master/raspislack.jpg)  
+
+
 
 ### A set of python modules to control a Raspberry Pi via Slack
 
