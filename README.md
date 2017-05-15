@@ -2,14 +2,32 @@
 
 ### A set of python modules to control a Raspberry Pi via Slack
 
-An easy to use Python script to run a bot from an RPI - clone it onto your Pi, fill in the slack_config.conf file with appropriate API keys, usernames and webhook urls (if using).
+An easy to use Python script to run a bot from an RPI.  It allows you to send direct messages to a bot running on an RPI (or indeed any Linux system).  There are three plugins that the script uses to parse user messages:
+
+plugin_status: responds to 'status' with a readout of temperature, CPU % and running time
+plugin_motion: use on an RPI running Motion - respons to 'snapshot' with a picture from the webcam.
+plugin_sys: reponds to 'reboot' or 'shut down' and either reboots or shuts down
+
+I plan to add more!
+
+Script only works on Python 2.7 due to the underlying slackclient library
 
 To use:
+
+1. Create a bot within Slack and invite it into the #general channel
+
+[Instructions for creating a bot can be found here](https://my.slack.com/services/new/bot)
+
+2. Clone this repository  onto your Pi:
 
 ```BASH
 
 $ git clone https://github.com/philipok-1/raspberry-slack
 ```
+
+3.  Fill in the slack_config.conf file with appropriate API keys, usernames and webhook urls (if using)
+
+4.  Run the Raspberry-Slack.py script from your pi (probably with sudo)
 
 With acknowledgments to: 
 
