@@ -67,7 +67,7 @@ def get_temp():
 
 #url="https://hooks.slack.com/services/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"
 
-def post_message(token, username, text, emoji, channel="#general"):
+def post_message(token, username, text, emoji, channel='#general'):
 
     """sends a chat.postMessage to the specified channel.  data payload is a simple list, attachments must be json-encoded"""
 
@@ -77,7 +77,7 @@ def post_message(token, username, text, emoji, channel="#general"):
     #attachments=json.dumps([{'pretext':'pretext', 'color':'warning', 'text':'text-test'}])
 
     payload = [
-      ('channel', '#general'),
+      ('channel', str(channel)),
       ('text', str(text)),
       ('token', str(token)),
       ('username', str(username)),
