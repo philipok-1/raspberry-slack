@@ -65,7 +65,6 @@ def get_temp():
 
     return str(out.group(0))
 
-#url="https://hooks.slack.com/services/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"
 
 def post_message(token, username, text, emoji, channel='#general'):
 
