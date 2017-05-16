@@ -124,6 +124,8 @@ class SlackBot():
                     self.channel_name = str(channel.get('name'))
 
             user_list = self.slack_client.api_call("users.list")
+            im_channel=self.slack_client.api_call("im.list")
+            logger.debug(str(im_channel))
 
             for user in user_list.get('members'):
                 if user.get('name') == self.name:
