@@ -4,9 +4,9 @@
 
 __author__ = "Philip Worman"
 __licence__ = "MIT"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
-#date last modified: 14/5/2017
+#date last modified: 16/5/2017
 
 import time
 import sys

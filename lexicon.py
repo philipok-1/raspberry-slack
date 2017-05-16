@@ -9,9 +9,9 @@ logger = utils.loggerMaster('slack.lexicon')
 
 def response(type):
 
-    phrases={'greetings':[", welcome back", "Hi there", "Good to see you again", "Hello again", "hi"],
+    phrases={'greetings':[", welcome back", "hi there", "good to see you again", "hello again", "hi"],
 
-    'farewells':['bye']
+    'farewells':['bye', 'see you later', 'farewell', 'see you soon']
 
     }
 
