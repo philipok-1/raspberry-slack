@@ -65,7 +65,10 @@ def get_temp():
 
     return str(out.group(0))
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6e816bdcf2d04da21f404e3ac0017e4b2654aec7
 def post_message(token, username, text, emoji, channel='#general'):
 
     """sends a chat.postMessage to the specified channel.  data payload is a simple list, attachments must be json-encoded"""
