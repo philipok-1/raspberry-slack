@@ -17,7 +17,7 @@ def loggerMaster(name, logfile='slack.log', logLevel='NOTSET'):
 
     logger = logging.getLogger(str(name))
     logger.setLevel(level=logLevel)
-    fh = logging.FileHandler(logfile, mode="w")
+    fh = logging.FileHandler(logfile, mode="a")
     fh.setLevel(level=logLevel)
     ch = logging.StreamHandler(sys.stdout)
     ch.setLevel(level=logLevel)
