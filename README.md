@@ -6,11 +6,11 @@
 
 An easy to use Python script to run a bot from an RPI.  It allows you to send direct messages to a bot running on an RPI (or indeed any Linux system), using the Real Time Messaging API to parse incoming text.  There are three plugins that the script uses to parse user messages using regex:
 
-* plugin_status: responds to 'status' with a readout of temperature, CPU % and running time
+* plugin_status: responds to 'status' with a readout of temperature, CPU % and running time;  responds to 'IP' with IP address;
 * plugin_motion: use on an RPI running Motion - responds to 'snapshot' with a picture from the webcam.
 * plugin_sys: reponds to 'reboot' or 'shut down' and either reboots or shuts down
 
-I plan to add more!  pleae send suggestions...
+I plan to add more!  please send suggestions...
 
 Script only works on Python 2.7 due to the underlying slackclient library
 
@@ -31,7 +31,7 @@ $ git clone https://github.com/philipok-1/raspberry-slack
 
 4.  Run the Raspberry-Slack.py script from your pi (probably with sudo)
 
-5.  Send your bot a DM on the relevant slack channel - i.e @rpi "send me a snapshot".  the bot will also recognise messages sent to @everyone so you can get mutiple PIS to report in
+5.  Send your bot a DM on the relevant slack channel - i.e @rpi "send me a snapshot".  The bot will also recognise messages sent to @everyone so you can get mutiple PIs to report in
 
 With acknowledgments to: 
 
