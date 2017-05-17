@@ -30,29 +30,30 @@ class SlackBot():
 
     """master slack client that remains alive for the duration of the script.  subsidiary connections to SlackClient are made on each connection drop or error"""
 
-    def __init__(self, token, bot, user, config):
+    def __init__(self, config):
+
+        self.config=config
+        self.token = self.config['api_key']
+        self.slack_client = None        
+        self.name = self.config['bot_name']
+        self.slack_user_id = None
+        self.direct_message_channels=None
+        self.channel_id = None
+        self.channel_name = None
+        self.master=self.config['master']
+
+        self.plugins=self.config.get('plugins', 'plugins').split('\n')
+        logger.info("Plugins installed: "+str(self.plugins))
 
         self.last_ping = 0
         self.reconnects = 0
-        self.token = token
-        self.slack_client = None
         self.error_count = 0
-        self.name = bot
-        self.user = user
-        self.slack_user_id = None
-        self.user_id = None
-        self.channel_id = None
-        self.channel_name = None
         self.run_time = 0
         self.run_time_total = 0
         self.first_time = True
         self.auth_check = True
         self.errors = []
         self.ping_frequency=15
-        self.config=config
-        self.plugins=self.config.get('plugins', 'plugins').split('\n')
-        logger.info("Plugins installed: "+str(self.plugins))
-
 
     def test_connection(self, verbose=True):
         """tests whether the device is connected to the internet"""
@@ -114,26 +115,25 @@ class SlackBot():
 
             logger.info("Getting user & channel IDs")
 
-            #get list of channels and channel members
+            #get list of users, channels and direct message channels
             
             channel_list = self.slack_client.api_call("channels.list")
+
+            self.direct_message_channels=self.slack_client.api_call("im.list")
+            
+            user_list = self.slack_client.api_call("users.list")
 
             for channel in channel_list.get('channels'):
                 if channel.get('is_member'):
                     self.channel_id = str(channel.get('id'))
                     self.channel_name = str(channel.get('name'))
 
-            user_list = self.slack_client.api_call("users.list")
-            im_channel=self.slack_client.api_call("im.list")
-            logger.debug(str(im_channel))
-
             for user in user_list.get('members'):
                 if user.get('name') == self.name:
                     self.slack_user_id = user.get('id')
-                if user.get('name') == self.user:
-                    self.user_id = user.get('id')
+
             logger.info("Bot ID:  " +
-                        str(self.user_id) +
+                        str(self.slack_user_id) +
                         " Channel ID: " +
                         str(self.channel_id) +
                         "/ " +
@@ -219,7 +219,7 @@ class SlackBot():
             if message['type'] == 'presence_change':
                 if message['presence'] == 'active':
                     time.sleep(.5)
-                    self.say(lex.response('greetings'))
+                    self.say(lex.response('greetings')+" "+str(self.master))
 
             if 'text' in message:
                 if message['text'].startswith(

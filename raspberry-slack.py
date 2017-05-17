@@ -4,9 +4,9 @@
 
 __author__ = "Philip Worman"
 __licence__ = "MIT"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
-#date last modified: 14/5/2017
+#date last modified: 17/5/2017
 
 import time
 import sys
@@ -43,12 +43,6 @@ else:
 
 config_file=config.read_config(str(location))
 
-#set tokens
-
-API_KEY = config_file['api_key']
-BOT_NAME = config_file['bot_name']
-USER_NAME = config_file['user_name']
-
 # signal handler for kill commands
 
 utils.set_signal()
@@ -57,7 +51,7 @@ utils.set_signal()
 
 if __name__ == ('__main__'):
 
-    bot = SlackBot.SlackBot(API_KEY, BOT_NAME, USER_NAME, config_file)
+    bot = SlackBot.SlackBot(config_file)
     bot.generate_client()
 
     try:
