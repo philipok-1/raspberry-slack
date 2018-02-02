@@ -214,7 +214,7 @@ class SlackBot():
         #checks the message stream
 
         for message in messages:
-            print (message)
+            #print (message)
 
             if message['type'] == 'presence_change':
                 if message['presence'] == 'active':

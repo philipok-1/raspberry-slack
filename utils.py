@@ -20,7 +20,7 @@ def loggerMaster(name, logfile='slack.log', logLevel='NOTSET'):
     fh = logging.FileHandler(logfile, mode="a")
     fh.setLevel(level=logLevel)
     ch = logging.StreamHandler(sys.stdout)
-    ch.setLevel(level=logLevel)
+    ch.setLevel(level='CRITICAL')
     formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     fh.setFormatter(formatter)
