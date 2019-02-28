@@ -2,7 +2,7 @@
 
 """Slack_test.py: Slack bot to control a webcam and post snapshots to Slack ."""
 
-__author__ = "Philip Worman"
+
 __licence__ = "MIT"
 __version__ = "1.0.1"
 
